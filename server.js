@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const dogController = require("./controllers/dogcontroller");
 
 //middleware
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(methodOverride('_method'));
 app.use("/dogs", dogController);
 
 
