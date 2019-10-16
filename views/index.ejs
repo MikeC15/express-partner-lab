@@ -12,11 +12,11 @@
         <%for(let i = 0; i < dogs.length; i++){%>
             <li>
                 <a href='/dogs/<%=i%>'><%=dogs[i].name%></a>
-                <form action="" method="POST">
+                <form action="/dogs/<%=i%>/edit" method="GET">
                     <button type="submit">EDIT</button>
                 </form>
                 <form action="/dogs/<%=i%>?_method=DELETE" method="POST">
-                        <button type="submit">DELETE</button>
+                    <button type="submit">DELETE</button>
                 </form>
             </li>
         <%}%>

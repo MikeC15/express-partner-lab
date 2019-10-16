@@ -14,6 +14,22 @@ router.get("/", (req, res) => {
     })
 })
 
+//update
+router.put("/:index", (req,res) => {
+    req.body.isGoodBoy = req.body.isGoodBoy === 'on' ? true : false;
+    dogs[req.params.index] = req.body;
+    res.redirect('/dogs');
+})
+
+//edit 
+router.get('/:index/edit', (req,res) => {
+    console.log("edit route showing");
+    res.render('edit.ejs',{
+        dog: dogs[req.params.index],
+        index: req.params.index
+    })
+})
+
 //delete 
 router.delete("/:index", (req,res) => {
     dogs.splice(req.params.index,1);
